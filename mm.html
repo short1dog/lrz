@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三次作业</title>
+</head>
+<style>
+    body {
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        background-position: center top;
+
+    }
+
+
+    .paragraph {
+        background-image: url(wufan.jpg);
+        background-repeat: no-repeat;
+        background-position: 80% 50%;
+        /*background-position:80% 95%*/
+        filter: alpha(opacity:30);
+        opacity: 1;
+    }
+
+
+    .yyue {
+        float: right;
+        width: 300px;
+        height: 54px;
+
+
+    }
+
+    .xingming {
+        width: 300px;
+        height: 115px;
+        background-color: #c0c5bf;
+        position: relative;
+        float: left;
+
+    }
+
+    .xingming p {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: rgb(236, 9, 206);
+        font-style: oblique;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: center;
+        /* margin:10px auto; */
+
+    }
+
+    .xingming a {
+        display: inline-block;
+        text-align: center;
+        color: crimson;
+        text-decoration: none;
+
+    }
+
+    .xingming a:hover {
+        background-color: white;
+        color: pink;
+    }
+
+    .zhuti {
+        width: 50%;
+        height: 115px;
+
+        margin: 0 auto;
+        float: right;
+    }
+
+    .zhuti p {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: rgb(236, 9, 206);
+        font-style: oblique;
+        font-size: 80px;
+
+        line-height: 15px;
+        text-align: center;
+    }
+
+    .zhuti a {
+        display: inline-block;
+        text-align: center;
+        color: crimson;
+        text-decoration: none;
+        font-size: 40px;
+    }
+
+    .zhuti a:hover {
+        /* background-color: white; */
+        color: yellow;
+    }
+
+    
+
+    .box {
+        display: flex;
+        width: 100%;
+        padding: 4% 2%;
+        box-sizing: border-box;
+        height: 100vh;
+        margin: 10px auto;
+    }
+
+    .box1 {
+        flex: 1;
+        overflow: hidden;
+        transition: 5.5s;
+        margin: 0 2%;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        line-height: 0;
+    }
+
+    .box1 img {
+        width: 200;
+        height: calc(100 - 10vh);
+        object-fit: cover;
+        transition: 5.5s;
+    }
+
+    .box1:hover {
+        flex: 1 1 50%;
+    }
+
+    .box1:hover img {
+        width: 100px;
+        height: 100%;
+    }
+
+    .box1 span {
+        font-style: italic;
+        font-size: 35px;
+        float: left;
+        margin: 30px auto;
+        color: yellow;
+        display: block;
+        text-align: center;
+    }
+
+    .yz {
+        font-style: italic;
+        font-size: 50px;
+        width: 50%;
+        height: 400px;
+        margin: 10px auto;
+        color: pink;
+    }
+
+    .t {
+        width: 25%;
+        height: 40px;
+        /* background-color: pink; */
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 40px;
+        text-indent: 1.5em;
+        float: left;
+    }
+
+    .t a {
+        display: inline-block;
+        text-align: center;
+        color: rgb(245, 3, 3);
+        text-decoration: none;
+    }
+
+    .t2 {
+        width: 35%;
+        height: 40px;
+        /* background-color: pink; */
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 40px;
+        text-indent: 1.5em;
+        float: left;
+
+    }
+
+    .t2 a {
+        display: inline-block;
+        text-align: center;
+        color: rgb(33, 255, 13);
+        text-decoration: none;
+    }
+
+    .t3 {
+        width: 35%;
+        height: 40px;
+        /* background-color: pink; */
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 40px;
+        text-indent: 1.5em;
+        float: left;
+    }
+
+    .t3 a {
+        display: inline-block;
+        text-align: center;
+        color: rgb(15, 228, 228);
+        text-decoration: none;
+    }
+
+    .b {
+        width: 100%px;
+        height: 40px;
+    }
+
+    .wz {
+        color: yellow;
+    }
+    .boxtwo {
+        display: flex;
+        width: 100%;
+        padding: 4% 2%;
+        box-sizing: border-box;
+        height: 100vh;
+        margin: 10px auto;
+    }    
+  
+
+        html, body, ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #wall {
+            position: relative;
+        }
+
+        #wall li {
+            width: 320px;
+            height: 426px;
+            box-shadow: 0 0 15px #000;
+            position: absolute;
+
+            transition: all 1s;
+        }
+
+        #wall li img {
+            width: 320px;
+            height: 426px;
+        }
+
+        #wall li.current {
+            left: 50% !important;
+            top: 50% !important;
+            transform: rotate(0) translate(-50%, -50%) scale(1.2, 1.2) !important;
+            z-index: 9;
+        }
+    
+/*     
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            list-style: none;
+        } */
+
+        html, body, ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        #wall {
+            position: relative;
+        }
+
+        #wall li {
+            width: 320px;
+            height: 426px;
+            box-shadow: 0 0 15px #000;
+            position: absolute;
+
+            transition: all 1s;
+        }
+
+        #wall li img {
+            width: 320px;
+            height: 426px;
+        }
+
+        #wall li.current {
+            left: 50% !important;
+            top: 50% !important;
+            transform: rotate(0) translate(-50%, -50%) scale(1.2, 1.2) !important;
+            z-index: 9;
+        }
+    
+</style>
+
+<body background="sp\beijin.jpg">
+
+    <div class="tiaofu">
+        <marquee bgcolor="pink" behavior="scroll">
+            <font color="black" size="+4">自我介绍</font>
+        </marquee>
+
+    </div>
+    <div class="yyue">
+        <audio src="sp\房子帆,赵海宁 - 奇妙能力歌（翻自 陈粒）.mp3" autoplay="autoplay" controls="controls"></audio>
+    </div>
+    <div class="zhuti">
+        <p> <a href="">
+                <h3>做一个平凡的人 春暖花开</h3>
+            </a></p>
+
+    </div>
+    <div class="xingming">
+        <img src="sp\边框.bmp" />
+        <p> &emsp;&emsp;<a href="#">爱您 </a> </p>
+
+    </div>
+
+    <div class="yz">
+        <table border="2" bordercolor="black">
+            <caption>小小验证</caption>
+            <tbody>
+                <tr>
+
+                    <th>前同姓名</th>
+                    <td align="center">王禹杰</td>
+                    <th>学号</th>
+                    <td align="center">0129</td>
+                </tr>
+                <tr>
+                    <th>后同姓名</th>
+                    <td align="center">吴佳奇</td>
+                    <th>学号</th>
+                    <td align="center">0131</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="wz">
+
+        <h1>以下是对自己喜欢的事物的简介<h1>
+                <h2>(请把鼠标放在图上，有文字)</h2>
+
+    </div>
+    <div class="b">
+        <div class="t">
+            <h4><a href="https://www.bilibili.com/video/BV19s411v7zK/"> &emsp;图书：《活着》</a></h4>
+        </div>
+        <div class="t2">
+            <h4><a href="https://www.bilibili.com/video/BV1jJ411k74Z">&emsp;&emsp;&emsp;&emsp;喜欢的零食：冰淇淋穆斯</a></h4>
+        </div>
+        <div class="t3">
+            <h4><a href="#">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;本帅哥</a></h4>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="box1">
+            <img src="sp\hula.jpg" width="520px" height="750px">
+            <span>
+                《活着》这篇长篇小说成书于1992年，<p></p>
+                曾经是墙里开花墙外香，<p></p>
+                如今已名扬海内外,<p></p>
+                是作者余华唯一一部兼有<p></p>
+                现实主义文学和先锋文学特征的作品。<p></p>
+                有人说，《活着》是繁花落尽一<p></p>
+                片萧瑟中对生命意义的终极关怀。<p></p>
+                事实上，作者在用一种近乎<p>
+                    冰冷的笔调娓娓而又执着的叙述，
+                <p></p>
+                却使一种近乎含情脉脉的温和侵入我们的阅读，<p></p>
+                他引导我们思考活着的意义，在这冷与热中，<p></p>
+                作者以情绪消解了苦难，<p></p>
+                在作者看来，对待苦难的办法是忍受它，<p></p>
+                逆来顺受，放弃内心的挣扎和疑问，<p></p>
+                并用佛道的逍遥来遗忘来瓦解痛夺。<p></p>
+
+            </span>
+        </div>
+        <div class="box1">
+            <img src="sp\jiangshui.jpg" width="520px" height="750px">
+            <span>
+                <h3>
+                    冰激凌最早起源于西方权贵餐桌上冰冻<p></p>
+                    的葡萄酒和其他冰镇饮料，<p></p>
+                    曾一度是西方待客的奢侈品。<p></p>
+                    是对美食艺术最完美的出现，<p></p>
+                    诠释卓、香、味、型、器之美食精华<p></p>
+                    由冰淇淋制造师现场操作专业制造设备，<p></p>
+                    “超低温”倾慕制造而成，<p></p>
+                    表现了造型艺术与时髦美味的完美结合.<p></p>
+
+                </h3>
+            </span>
+        </div>
+        <div class="box1">
+            <img src="sp\QQ图片20201011154334.jpg" width="520px" height="750px">
+            <span>
+                <h3>
+                    <p>本人在校受过专业教育，
+                    <p>锻炼了各方面的潜力
+                    <p>学习了丰富的知识
+                    <p>具有较好的专业功底及文化素养
+                    <p>为人正直诚恳，诚信度高
+                    <p>处事用心果断
+                    <p>有较强的心里素质
+                </h3>
+            </span>
+        </div>
+        
+    </div>
+    <div class="b">
+        <div class="t">
+            <h4><a href="https://www.bilibili.com/video/BV19s411v7zK/"> &emsp;热爱明星</a></h4>
+        </div>
+        <div class="t2">
+            <h4><a href="https://www.bilibili.com/video/BV1f4411P7Eu">&emsp;&emsp;&emsp;&emsp;足球爱好</a></h4>
+        </div>
+        <!-- <div class="t3">
+            <h4><a href="#">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;喜欢的游戏</a></h4>
+        </div> -->
+    </div>
+<div class="boxtwo">
+    <div class="box1">
+        <img src="sp\C罗.jpg" width="520px" height="750px">
+        <span>
+            克里斯蒂亚诺·罗纳尔多<p></p>
+            （Cristiano Ronaldo dos Santos Aveiro）<p></p>
+            1985年2月5日出生于葡萄牙马德拉岛丰沙尔<p></p>
+            葡萄牙足球运动员，<p></p>
+            司职边锋／中锋，<p></p>效力于意甲尤文图斯足球俱乐部。
+        </span>
+</div>
+<div class="box1">
+    <img src="sp\足球.jpg" width="520px" height="750px">
+    <span>
+        一项以脚为主，控制和支配球，<p></p>
+        两支球队按照一定规则在同一块<p></p>
+        长方形场地上互相进行进攻、<p></p>
+        防守对抗的体育运动项目。<p></p>
+        因足球运动对抗性强、战术多变<p></p>
+        参与人数多等特点，<p></p>
+        故被称为“世界第一运动”。<p></p>
+
+    </span>
+    </div>
+    <!-- <div class="box1">
+        <img src="sp\QQ飞车.jpg" width="520px" height="750px">
+        <span>
+
+        </span> -->
+        </div>
+        <body>
+            <ul id="wall">
+                <li style="left: 495.301px; top: 161.58px; transform: rotate(102.652deg);"><img src="sp\q1.jpg">
+            </li><li style="left: 340.166px; top: 37.4142px; transform: rotate(313.958deg);"><img src="sp\q2.jpg"></li>
+            <li style="left: 917.307px; top: 10.0634px; transform: rotate(138.367deg);"><img src="sp\q3.jpg"></li>
+            <li style="left: 203.758px; top: 242.821px; transform: rotate(3.20453deg);"><img src="sp\q4.jpg"></li></ul>
+            <script>
+                window.onload = function () {
+                    var wall = document.getElementById('wall');
+                    // 照片左上角的最大位置
+                    // var maxWidth = document.documentElement.clientWidth - 320;
+                    // var maxHeight = document.documentElement.clientHeight - 426;
+        
+                    // 1. 动态创建 li 标签
+                    for (var i = 0; i < 3; ++i) {
+                        // 1.1 创建标签
+                        var li = document.createElement("li");
+                        wall.appendChild(li);
+        
+                        // 1.2 创建 img 标签
+                        var img = document.createElement("img");
+                        if (i < 9)
+                            img.src = "images/mn0" + (i+1) + ".jpg";
+                        else
+                            img.src = "images/mn" + (i+1) + ".jpg";
+                        li.appendChild(img);
+        
+                        // // 随机位置
+                        // li.style.left = Math.random()*maxWidth + 'px';
+                        // li.style.top = Math.random()*maxHeight + 'px';
+        
+                        // // 随机角度
+                        // li.style.transform = 'rotate(' + Math.random()*360 + 'deg)';
+                    }
+        
+                    var allLis = wall.children;
+                    for (var i = 0; i < allLis.length; ++i) {
+                        var li = allLis[i];
+                        // 监听点击事件
+                        li.onclick = function () {
+                            for (var j = 0; j < allLis.length; ++j)
+                                allLis[j].className = '';
+                            this.className = "current";
+                        }
+                    }
+                }
+            </script>
+        
+        </body>
+</div>
+    <a href="#">
+        <h1>酷酷的男孩喜欢的武术</h1>
+    </a>
+    <video controls>
+        <source src="sp\HwVideoEditor_2020_11_29_212116.mp4" type="video/mp4" width="100%">
+    </video>
+    <div class="wei">
+        <marquee bgcolor="" behavior="scroll">
+            <font color="yellow" size="+4">制作人：李润泽   学号：201916180130  个人邮箱：xxx@qq.com</font>
+        </marquee>
+
+    </div>
+</body>
+
+</html>
